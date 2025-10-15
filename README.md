@@ -9,12 +9,17 @@ Sendo mostrado passo-a-passo neste documento.
 
 ## Indice
 1.Pre-requesitos(#pré-requisitos)
+
 2.Configuração do ambiente(#configuração-do-ambiente)
+
 3.Wordlists e arquivos(#wordlists-e-arquivos)
+
 4.Testes realizados(#testes-realizados)
+
 5.Evidências / Logs(#evidências--logs)
+
 6.Mitigações e recomendações(#mitigações-e-recomendações)
-7.Estrutura do repositório
+
 
 ## Pré-requisitos
 
@@ -218,18 +223,16 @@ Apos a enumeração, iremos ver a parte de Password Spraying
 
 Notem que ele conseguiu achar um usuário e senha para o acesso via SMB.
 
+# Evidencias:
 
+Coloquei os logs e os worklists adicionados junto ao main.
 
-
-
-
-
-
+# Mitigação
 
 FTP: evitar FTP simples; usar SFTP/FTPS; proibir contas com senhas fracas e usar bloqueio após X tentativas; monitorar logs de autenticação.
 
-Formulários web: proteção contra brute force (rate limiting, CAPTCHA, WAF), políticas de bloqueio progressivo, logs de tentativas, uso de hashing + salt nas senhas, autenticação multifator.
+Formulários web: proteção contra brute force (rate limiting, CAPTCHA, WAF), políticas de bloqueio progressivo ou de quantidade de tentativas, uso de hashing + salt nas senhas, autenticação 2FA .
 
 SMB: desativar SMBv1, aplicar políticas de senha forte, logging, detecção de varreduras/ataques de senha, limitar contas administrativas e aplicar lockout/alertas.
 
-Geral: implementar MFA, políticas de rotação de senha, monitoramento SIEM, segmentação de rede e princípio do privilégio mínimo.
+Geral: implementar MFA, políticas de rotação de senha com troca trimestral, monitoramento SIEM, segmentação de rede e princípio do privilégio mínimo e monitoramento de trafego.
